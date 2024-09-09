@@ -6,11 +6,12 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 10:31:26 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/09/06 10:50:30 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/09/09 11:31:59 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <limits.h>
 
 class ClapTrap {
 	public:
@@ -24,7 +25,8 @@ class ClapTrap {
 		void beRepaired(unsigned int amount);
 	private:
 		std::string _name;
-		int	hp = 10;
-		int ep = 10;
-		int ad = 0;
+		int	healpoint;
+		int	hp_max;
+		int energypoint;
+		int attackdamage;
 };
