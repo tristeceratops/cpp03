@@ -20,6 +20,15 @@ ClapTrap::ClapTrap(const ClapTrap &src)
 	this->attackdamage = src.attackdamage;
 	std::cout << "ClapTrap named " << src._name <<" is copied" << std::endl;
 }
+ClapTrap::ClapTrap(std::string name, int hp, int hp_m, int ep, int ad)
+{
+	this->_name = name;
+	this->healpoint = hp;
+	this->energypoint = ep;
+	this->attackdamage = ad;
+
+}
+
 
 ClapTrap::~ClapTrap()
 {
@@ -69,4 +78,22 @@ void ClapTrap::beRepaired(unsigned int amount)
 	}
 	else
 		std::cout << "Claptrap " << _name << " is too low on energy !" << std::endl;
+}
+
+void ClapTrap::setHealPoint(int amount)
+{
+	this->healpoint = amount;
+}
+void ClapTrap::setMaxHeal(int amount)
+{
+	this->healpoint = amount;
+	this->hp_max = amount;
+}
+void ClapTrap::setEnergyPoint(int amount)
+{
+	this->energypoint = amount;
+}
+void ClapTrap::setAttackDamage(int amount)
+{
+	this->attackdamage = amount;
 }
