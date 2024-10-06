@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include <iostream>
-#include <limits.h>
 
 class ClapTrap {
 	public:
@@ -26,7 +27,6 @@ class ClapTrap {
 	private:
 		std::string _name;
 		int	healpoint;
-		int	hp_max;
 		int energypoint;
 		int attackdamage;
 };

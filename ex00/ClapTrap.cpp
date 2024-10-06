@@ -1,11 +1,11 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap():_name("Default"), healpoint(10), hp_max(healpoint), energypoint(10), attackdamage(0)
+ClapTrap::ClapTrap():_name("Default"), healpoint(10), energypoint(10), attackdamage(0)
 {
 	std::cout << "Unnamed ClapTrap created" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name): healpoint(10), hp_max(healpoint), energypoint(10), attackdamage(0)
+ClapTrap::ClapTrap(std::string name): healpoint(10), energypoint(10), attackdamage(0)
 {
 	this->_name = name;
 	std::cout << "ClapTrap named " << name <<" is created" << std::endl;
@@ -15,7 +15,6 @@ ClapTrap::ClapTrap(const ClapTrap &src)
 {
 	this->_name = src._name;
 	this->healpoint = src.healpoint;
-	this->hp_max = src.hp_max;
 	this->energypoint = src.energypoint;
 	this->attackdamage = src.attackdamage;
 	std::cout << "ClapTrap named " << src._name <<" is copied" << std::endl;
@@ -61,10 +60,8 @@ void ClapTrap::beRepaired(unsigned int amount)
 	if (energypoint > 0 && healpoint > 0)
 	{
 		std::cout << "Claptrap " << _name << " repaired itself  " << amount << " healpoint !" << std::endl;
-		this->energypoint--;
+		this->energypoint--;	
 		this->healpoint += amount;
-		if (healpoint > hp_max)
-			healpoint = hp_max;
 		std::cout << "He now have " << healpoint << " healpoint." << std::endl;
 	}
 	else

@@ -11,19 +11,22 @@
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int main(void)
-{
-	ClapTrap jose = ClapTrap("José");
-	ClapTrap unnamed;
-	ClapTrap paul = (std::string) "Paul";
+int main() {
+    ClapTrap claptrap("CT-01");
+    claptrap.attack("target1");
+    claptrap.takeDamage(5);
+    claptrap.beRepaired(3);
+    claptrap.attack("target2");
 
-	for (int i = 0; i < 15; i++)
-		jose.attack("Paul");
-	paul.takeDamage(INT_MIN);
-	paul.takeDamage(15);
-	paul.attack("Handsome Jack");
-	unnamed.attack("Handsome Jack");
-	unnamed.takeDamage(4);
-	unnamed.beRepaired(2);
+    std::cout << "------------------------" << std::endl;
+
+    ScavTrap scavtrap("ST-01");
+    scavtrap.attack("target3");
+    scavtrap.takeDamage(30);
+    scavtrap.beRepaired(20);
+    scavtrap.guardGate();
+
+    return 0;
 }
