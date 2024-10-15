@@ -11,13 +11,10 @@ ClapTrap::ClapTrap(std::string name): healpoint(10), energypoint(10), attackdama
 	std::cout << "ClapTrap named " << name <<" is created" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &src)
+ClapTrap::ClapTrap(const ClapTrap &copy)
 {
-	this->_name = src._name;
-	this->healpoint = src.healpoint;
-	this->energypoint = src.energypoint;
-	this->attackdamage = src.attackdamage;
-	std::cout << "ClapTrap named " << src._name <<" is copied" << std::endl;
+	*this = copy;
+	std::cout << "ClapTrap named " << copy._name <<" is copied" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
@@ -45,25 +42,30 @@ void ClapTrap::attack(const std::string& target)
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->healpoint <= 0)
-		return ;
-	if (amount > INT_MAX)
-		amount = INT_MAX;
-	std::cout << "Claptrap " << _name << " is hurt and take " << amount << "damage" << std::endl;
-	this->healpoint -= amount;
-	std::cout << "He now has " << healpoint << " healpoint." << std::endl;
-	if (healpoint <= 0)
-		std::cout << "Claptrap " << _name << " is dead !" << std::endl;
-}
-void ClapTrap::beRepaired(unsigned int amount)
-{
-	if (energypoint > 0 && healpoint > 0)
-	{
-		std::cout << "Claptrap " << _name << " repaired itself  " << amount << " healpoint !" << std::endl;
-		this->energypoint--;	
-		this->healpoint += amount;
-		std::cout << "He now have " << healpoint << " healpoint." << std::endl;
-	}
+	if (this->healpoint > amount)
+		this->healpoint -= amount;
+	else if (this->healpoint > 0)
+		this->healpoint = 0;
 	else
-		std::cout << "Claptrap " << _name << " is too low on energy !" << std::endl;
+	{
+		std::cout << "Claptrap " << _name << " is already dead !" << std::endl;
+		return ;
+	}
+	std::cout << "Claptrap " << _name << " take" << amount << " of damage !" << std::endl;
+
+}
+void	ClapTrap::beRepaired(unsigned int amount)
+{
+	if (this->energypoint > 0 && this->healpoint > 0 && this->healpoint + amount <= 10)
+	{
+		this->healpoint += amount;
+		std::cout << "ClapTrap " << this->_name << " repaired itself and gained " << amount << " of hit points, he now has " << this->healpoint << "hit points." << std::endl;
+		this->energypoint--;
+	}
+	else if (this->energypoint == 0)
+		std::cout << "ClapTrap " << this->_name << " is not able to repair itself, because he doesn't have enough energy points." << std::endl;
+	else if (this->healpoint == 0)
+		std::cout << "ClapTrap " << this->_name << " is not able to repair itself, because he doesn't have enough hit points." << std::endl;
+	else
+		std::cout << "ClapTrap " << this->_name << " can't be repaired to have more than 10 hit points." << std::endl;
 }
