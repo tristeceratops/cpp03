@@ -12,28 +12,68 @@
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(const std::string& name)
-    : ClapTrap(name) {
-    healpoint = 100;
-    energypoint = 50;
-    attackdamage = 20;
-    std::cout << "ScavTrap " << _name << " constructed." << std::endl;
+ScavTrap::ScavTrap(): ClapTrap()
+{
+	this->healpoint = 100;
+	this->energypoint = 50;
+	this->attackdamage = 20;
+	this->_isGuard = false;
+	std::cout << "ScavTrap Default Constructor called" << std::endl;
 }
 
-ScavTrap::~ScavTrap() {
-    std::cout << "ScavTrap " << _name << " destructed." << std::endl;
+ScavTrap::ScavTrap(const ScavTrap &copy): ClapTrap(copy)
+{
+	this->_isGuard = copy._isGuard;
+	std::cout << "ScavTrap Copy Constructor called" << std::endl;
 }
 
-void ScavTrap::attack(const std::string& target) {
-    if (healpoint > 0 && energypoint > 0) {
-        std::cout << "ScavTrap " << _name << " ferociously attacks " << target
-                  << ", causing " << attackdamage << " points of damage!" << std::endl;
-        energypoint--;
-    } else {
-        std::cout << "ScavTrap " << _name << " has no energy or hit points left to attack!" << std::endl;
-    }
+ScavTrap::ScavTrap(std::string name): ClapTrap(name)
+{
+	this->healpoint = 100;
+	this->energypoint = 50;
+	this->attackdamage = 20;
+	this->_isGuard = false;
+	std::cout << "ScavTrap Constructor for the name " << this->_name << " called" << std::endl;
 }
 
-void ScavTrap::guardGate() {
-    std::cout << "ScavTrap " << _name << " is now in Gate keeper mode." << std::endl;
+// Deconstructors
+ScavTrap::~ScavTrap()
+{
+	std::cout << "ScavTrap Deconstructor for " << this->_name << " called" << std::endl;
+}
+
+// Overloaded Operators
+ScavTrap &ScavTrap::operator=(const ScavTrap &src)
+{
+	std::cout << "ScavTrap Assignation operator called" << std::endl;
+	this->_name = src._name;
+	this->healpoint = src.healpoint;
+	this->energypoint = src.energypoint;
+	this->attackdamage = src.attackdamage;
+	return *this;
+}
+
+// Public Methods
+void	ScavTrap::attack(const std::string &target)
+{
+	if (this->energypoint > 0 && this->healpoint > 0)
+	{
+		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->attackdamage << " points of damage!" << std::endl;
+		this->energypoint--;
+	}
+	else if (this->energypoint == 0)
+		std::cout << "\033[31mScavTrap " << this->_name << " is not able to attack " << target << ", because he has no energy points left.\033[0m" << std::endl;
+	else
+		std::cout << "\033[31mScavTrap " << this->_name << " is not able to attack " << target << ", because he has not enough hit points.\033[0m" << std::endl;
+}
+
+void	ScavTrap::guardGate(void)
+{
+	if (this->_isGuard == false)
+	{
+		this->_isGuard = true;
+		std::cout << "ScavTrap " << this->_name << " is now guarding the gate." << std::endl;
+	}
+	else
+		std::cout << "\033[33mScavTrap " << this->_name << " is already guarding the gate.\033[0m" << std::endl;
 }

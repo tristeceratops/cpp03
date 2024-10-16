@@ -15,18 +15,21 @@
 #include <iostream>
 
 class ClapTrap {
-	protected:
-		std::string _name;
-		int	healpoint;
-		int energypoint;
-		int attackdamage;
 	public:
 		ClapTrap();
 		ClapTrap(std::string name);
-		ClapTrap(const ClapTrap &src);
-		~ClapTrap();
+		ClapTrap(const ClapTrap &copy);
+
+		virtual ~ClapTrap();
+
 		ClapTrap &operator=(const ClapTrap &rhs);
-		virtual void attack(const std::string& target);
+
+		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
+	protected:
+		std::string _name;
+		unsigned int healpoint;
+		unsigned int energypoint;
+		unsigned int attackdamage;
 };
