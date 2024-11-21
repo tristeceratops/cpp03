@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 10:37:17 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/09/09 11:32:38 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/11/21 17:44:40 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,53 @@
 #include "ScavTrap.hpp"
 
 int main() {
-    ClapTrap claptrap("CT-01");
-    claptrap.attack("target1");
-    claptrap.takeDamage(5);
-    claptrap.beRepaired(3);
-    claptrap.attack("target2");
+	std::cout << "### TESTING CLAPTRAP ###\n" << std::endl;
+	{
+		std::cout << "\033[5;34mConstructing\033[0m" << std::endl;
+		ClapTrap a;
+		ClapTrap b("Cody");
 
-    std::cout << "------------------------" << std::endl;
+		std::cout << "\033[5;34mTesting\033[0m" << std::endl;
+		a.attack("some other robot");
+		a.takeDamage(10);
+		a.takeDamage(10);
+		a.beRepaired(5);
+		a.attack("some other other robot");
+		b.beRepaired(3);
+		for (int i = 0; i < 12; i++)
+			b.attack("Cody-clone");
+		b.beRepaired(3);
+		a = b;
+		a.attack("some other robot");
+		b.attack("some other robot");
+		std::cout << "\033[5;34mDeconstructing\033[0m" << std::endl;
+	}
 
-    ScavTrap scavtrap("ST-01");
-    scavtrap.attack("target3");
-    scavtrap.takeDamage(30);
-    scavtrap.beRepaired(20);
-    scavtrap.guardGate();
+		std::cout << "\n### TESTING SCAVTRAP ###\n" << std::endl;
+	{
+		std::cout << "\033[5;34mConstructing\033[0m" << std::endl;
+		ScavTrap a;
+		ScavTrap b("Cody");
 
+		std::cout << "\033[5;34mTesting\033[0m" << std::endl;
+		a.attack("some other robot");
+		a.takeDamage(10);
+		a.takeDamage(10);
+		a.beRepaired(5);
+		a.attack("some other other robot");
+		b.beRepaired(3);
+		for (int i = 0; i < 50; i++)
+			b.attack("Cody-clone");
+		b.beRepaired(3);
+		a = b;
+		a.attack("some other robot");
+		b.attack("some other robot");
+		a.guardGate();
+		a.guardGate();
+		a.guardGate();
+		b.guardGate();
+		b.guardGate();
+		std::cout << "\033[5;34mDeconstructing\033[0m" << std::endl;
+	}
     return 0;
 }
