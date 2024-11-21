@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/21 15:32:38 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/11/21 17:26:01 by ewoillar         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap():_name("Default"), healpoint(10), energypoint(10), attackdamage(0)
@@ -68,7 +56,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 		std::cout << "Claptrap " << _name << " is already dead !" << std::endl;
 		return ;
 	}
-	std::cout << "Claptrap " << _name << " take" << amount << " of damage !" << std::endl;
+	std::cout << "Claptrap " << _name << " take " << amount << " of damage !" << std::endl;
 
 }
 void	ClapTrap::beRepaired(unsigned int amount)
