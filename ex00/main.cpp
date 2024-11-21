@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 10:37:17 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/09/09 11:32:38 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/11/21 13:55:29 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int main(void)
 {
 	std::cout << "### TESTING CLAPTRAP ###\n" << std::endl;
 	{
-		std::cout << "\033[34mConstructing\033[0m" << std::endl;
+		std::cout << "\033[5;34mConstructing\033[0m" << std::endl;
 		ClapTrap a;
 		ClapTrap b("Cody");
 
-		std::cout << "\033[34mTesting\033[0m" << std::endl;
+		std::cout << "\033[5;34mTesting\033[0m" << std::endl;
 		a.attack("some other robot");
 		a.takeDamage(10);
 		a.takeDamage(10);
@@ -30,7 +30,10 @@ int main(void)
 		for (int i = 0; i < 12; i++)
 			b.attack("Cody-clone");
 		b.beRepaired(3);
-		std::cout << "\033[34mDeconstructing\033[0m" << std::endl;
+		a = b;
+		a.attack("some other robot");
+		b.attack("some other robot");
+		std::cout << "\033[5;34mDeconstructing\033[0m" << std::endl;
 	}
 	return (0);
 }

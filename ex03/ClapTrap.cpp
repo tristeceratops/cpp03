@@ -26,7 +26,12 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &rhs)
 {
 	std::cout << "ClapTrap named " << rhs._name <<" is copied" << std::endl;
 	if (this != &rhs)
-		*this = rhs;
+	{
+		_name = rhs._name;
+		healpoint = rhs.healpoint;
+		energypoint = rhs.energypoint;
+		attackdamage = rhs.attackdamage;
+	}
 	return *this;
 }
 
