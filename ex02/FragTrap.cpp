@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 21:08:21 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/17 21:08:21 by marvin           ###   ########.fr       */
+/*   Updated: 2024/11/21 18:00:33 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ FragTrap::FragTrap(): ClapTrap()
 	this->healpoint = 100;
 	this->energypoint = 100;
 	this->attackdamage = 30;
-	std::cout << "FragTrap Default Constructor called" << std::endl;
+	std::cout << "\033[32mFragTrap Default Constructor called\033[0m" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &copy): ClapTrap(copy)
 {
-	std::cout << "FragTrap Copy Constructor called" << std::endl;
+	std::cout << "\033[32mFragTrap Copy Constructor called\033[0m" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name): ClapTrap(name)
@@ -30,17 +30,17 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 	this->healpoint = 100;
 	this->energypoint = 100;
 	this->attackdamage = 30;
-	std::cout << "FragTrap Constructor for the name " << this->_name << " called" << std::endl;
+	std::cout << "\033[32mFragTrap Constructor for the name " << this->_name << " called\033[0m" << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap Deconstructor for " << this->_name << " called" << std::endl;
+	std::cout << "\033[32mFragTrap Deconstructor for " << this->_name << " called\033[0m" << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &src)
 {
-	std::cout << "FragTrap Assignation operator called" << std::endl;
+	std::cout << "\033[32mFragTrap Assignation operator called\033[0m" << std::endl;
 	this->_name = src._name;
 	this->healpoint = src.healpoint;
 	this->energypoint = src.energypoint;
@@ -50,5 +50,5 @@ FragTrap &FragTrap::operator=(const FragTrap &src)
 
 void	FragTrap::highFivesGuys(void)
 {
-	std::cout << "FragTrap " << this->_name << " is asking for a high five!" << std::endl;
+	std::cout << "\033[32mFragTrap " << this->_name << " is asking for a high five!\033[0m" << std::endl;
 }
