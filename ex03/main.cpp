@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 10:37:17 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/11/21 18:12:55 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/11/21 18:31:13 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,11 +111,13 @@ int main() {
 		a = b;
 		a.attack("some other robot");
 		b.attack("some other robot");
-		a.highFivesGuys();
-		a.highFivesGuys();
+		a.guardGate();
+		a.guardGate();
+		b.guardGate();
 		a.highFivesGuys();
 		b.highFivesGuys();
-		b.highFivesGuys();
+		a.whoAmI();
+		b.whoAmI();
 		std::cout << "\033[5;34mDeconstructing\033[0m" << std::endl;
 	}
     return 0;
