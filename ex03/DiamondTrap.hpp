@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 22:04:00 by marvin            #+#    #+#             */
-/*   Updated: 2024/10/17 22:04:00 by marvin           ###   ########.fr       */
+/*   Updated: 2024/11/25 16:41:15 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class DiamondTrap : public ScavTrap, public FragTrap
 {
 	private:
-		std::string name;
+		std::string _name;
 	public:
 		DiamondTrap();
 		DiamondTrap(std::string name);
