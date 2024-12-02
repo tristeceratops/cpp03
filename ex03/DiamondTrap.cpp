@@ -6,23 +6,23 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 22:03:58 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/29 13:38:35 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/11/29 17:43:07 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap() : ClapTrap("default_clap_trap"), ScavTrap("default_scav_trap"), FragTrap("default_frag_trap"), _name("default") {
-    this->healpoint = 100;
-    this->energypoint = 50;
-    this->attackdamage = 30;
+    this->_hitPoint = 100;
+    this->_energypoint = 50;
+    this->_attackdamage = 30;
     std::cout << "\033[31mDiamondTrap " << this->_name << " is created\033[0m" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_trap"), ScavTrap(name + "_scav_trap"), FragTrap(name + "_frag_trap"), _name(name) {
-    this->healpoint = 100;
-    this->energypoint = 50;
-    this->attackdamage = 30;
+    this->_hitPoint = 100;
+    this->_energypoint = 50;
+    this->_attackdamage = 30;
     std::cout << "\033[31mDiamondTrap " << this->_name << " is created\033[0m" << std::endl;
 }
 

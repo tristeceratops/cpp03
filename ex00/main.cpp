@@ -6,7 +6,7 @@
 /*   By: ewoillar <ewoillar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 10:37:17 by ewoillar          #+#    #+#             */
-/*   Updated: 2024/11/21 13:55:29 by ewoillar         ###   ########.fr       */
+/*   Updated: 2024/11/29 17:44:03 by ewoillar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main(void)
 		std::cout << "\033[5;34mConstructing\033[0m" << std::endl;
 		ClapTrap a;
 		ClapTrap b("Cody");
+		ClapTrap c(a);
 
 		std::cout << "\033[5;34mTesting\033[0m" << std::endl;
 		a.attack("some other robot");
